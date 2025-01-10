@@ -1,0 +1,18 @@
+<form>
+  <div id="content">
+    <h1>Search</h1>
+    <br/>
+    <div id="searchBoxContainer">
+      <input [class.inputShowSearch]="searchSuggestions.length > 0" type="search"
+        autocomplete="off" name="debouce-search" [formControl]="formControlInput" placeholder="Type something..."  > 
+      <div *ngIf="searchSuggestions.length > 0" id="searchSuggestions">
+        <a class="searchSuggestion" [class.lastSearchSuggestion]="i==searchSuggestions.length - 1" 
+          [class.firstSearchSuggestion]="i==0" 
+          *ngFor="let searchSuggestion of searchSuggestions; index as i" 
+          [href]="searchSuggestion['href']">
+            <span>{{searchSuggestion["text"]}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</form>
